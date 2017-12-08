@@ -6,7 +6,7 @@ defmodule StdJsonIo.JsonUtils do
   def complete_json?(json_string, []) do
     case Poison.decode(json_string) do
       {:ok, _data} -> true
-      {:error, _} -> false
+      _ -> false
     end
   end
 
@@ -30,5 +30,5 @@ defmodule StdJsonIo.JsonUtils do
 
   def wrap_incomplete_json(json, buffer) do
     [json|buffer]
-  end  
+  end
 end
